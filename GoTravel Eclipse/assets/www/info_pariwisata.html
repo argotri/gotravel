@@ -1,0 +1,49 @@
+<!-- start Info Pariwisata -->
+<div data-role="page" id="info_pariwisata" style="background:url(res/image/bg_pariwisata.jpg) top no-repeat" >
+    <div data-theme="b" data-role="header" data-position="fixed">
+ <a data-role="button"  data-direction="reverse" data-transition="slide"
+        href="index.html" data-icon="back" data-iconpos="left" class="ui-btn-left" data->
+            Back
+        </a>
+        <h3>
+            Info Pariwisata
+        </h3>
+    </div>
+    <div data-role="content"  style="background:url(res/image/bg_pariwisata.jpg) top no-repeat">
+    </script><script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div id="load"></div>
+    <script type="text/javascript">
+
+	 //javascript buat page info_pariwisata
+
+		$("#info_pariwisata").on('pageshow', function(event, ui) {
+			loading();
+			showKategori();
+			end_loading();
+
+		});
+		//end info_pariwisata
+	</script>
+    <!--
+    mentah list view
+		<li data-theme="c">
+                <a href="#page1" data-transition="slide">
+                    Wisata Alam
+                </a>
+            </li>
+    -->
+    
+        <ul id="kategori_view" data-role="listview" data-divider-theme="b" data-inset="true">
+			
+        </ul>
+
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3>
+            © 2013 GoSoft
+        </h3>
+
+    </div>
+</div>
+
+<!-- end untuk info pariwisata-->

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title></title>
+  
+  
+  
+  <link rel="stylesheet" href="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+  
+  <!-- Extra Codiqa features -->
+  <link rel="stylesheet" href="codiqa.ext.css">
+  
+  <!-- jQuery and jQuery Mobile -->
+  <script src="https://d10ajoocuyu32n.cloudfront.net/jquery-1.9.1.min.js"></script>
+  <script src="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+
+  <!-- Extra Codiqa features -->
+  <script src="https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.js"></script>
+   
+</head>
+<body>
+<!-- Home -->
+<div data-role="page" id="page1">
+    <div data-theme="b" data-role="header" data-position="fixed">
+        <a data-role="button" data-direction="reverse" data-transition="slide"
+        href="#page1" data-icon="back" data-iconpos="left" class="ui-btn-left">
+            Back
+        </a>
+        <h3>
+            About
+        </h3>
+    </div>
+    <div data-role="content">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Mojokerto&amp;zoom=14&amp;size=288x150&amp;markers=Mojokerto&amp;sensor=false"
+        width="288" height="150">
+        <div data-role="collapsible-set" data-theme="b" data-content-theme="b">
+            <div data-role="collapsible">
+                <h3>
+                    About Mojokerto
+                </h3>
+            </div>
+            <div data-role="collapsible" data-collapsed="false">
+                <h3>
+                    Peta Mojokerto
+                </h3>
+            </div>
+            <div data-role="collapsible" data-collapsed="false">
+                <h3>
+                    Potensi Mojokerto
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3>
+            © 2013 GoSoft
+        </h3>
+    </div>
+</div>
+</body>
+</html>

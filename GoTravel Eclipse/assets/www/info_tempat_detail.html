@@ -1,0 +1,39 @@
+<!-- start Info Pariwisata -->
+<div data-role="page" id="info_tempat_detail" style="background:url(res/image/bg_tempat_asyik.jpg) fixed bottom">
+    <div data-theme="b" data-role="header" data-position="fixed">
+ <a data-role="button"  data-direction="reverse" data-transition="slide"
+        href="info_tempat.html" data-icon="back" data-iconpos="left" class="ui-btn-left" data->
+            Back
+        </a>
+        <h3>
+            List Tempat Asyik
+        </h3>
+    </div>
+    <div data-role="content"  style="background:url(res/image/bg_pariwisata.jpg) top no-repeat">
+
+    <div id="load"></div>
+    <script type="text/javascript">
+	var data_wisata;
+	 $(function() {
+	 //javascript buat page info_pariwisata
+		$("#info_tempat_detail").on('pageshow', function(event, ui) {
+			loading();
+			showListTempat();
+			end_loading();
+		});
+		//end info_pariwisata
+	});
+	</script>
+         <ul id="wisata_view" data-role="listview" data-divider-theme="b" data-inset="true">
+			
+        </ul>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3>
+            © 2013 GoSoft
+        </h3>
+
+    </div>
+</div>
+
+<!-- end untuk info pariwisata-->

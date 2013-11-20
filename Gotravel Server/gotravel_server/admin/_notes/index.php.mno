@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_kategori_wisata" value="name:id_kategori;datatype:int,name:nama_kategori;datatype:string" />
+	<infoitem key="UD_kategori_wisata_opsi" value="name:id_kategori;datatype:int,name:nama_kategori;datatype:string" />
+	<infoitem key="UD_list_wisata" value="name:id_kategori;datatype:int,name:nama_kategori;datatype:string,name:id_wisata;datatype:int,name:nama_wisata;datatype:string,name:id_kategori;datatype:int,name:keterangan_pariwisata;datatype:blob,name:lat;datatype:string,name:long;datatype:string,name:url_foto;datatype:string" />
+	<infoitem key="UD_kategori_tempat" value="name:id_kategori;datatype:int,name:nama_kategori;datatype:string" />
+	<infoitem key="UD_kategori_tempat_opsi" value="name:id_kategori;datatype:int,name:nama_kategori;datatype:string" />
+	<infoitem key="UD_tempat_asyik" value="name:id_tempat;datatype:int,name:nama_tempat;datatype:string,name:id_kategori;datatype:int,name:keterangan_tempat;datatype:blob,name:lat;datatype:string,name:long;datatype:string,name:url_foto;datatype:string,name:id_kategori;datatype:int,name:nama_kategori;datatype:string" />
+	<infoitem key="UD_versi" value="name:cur_ver;datatype:int" />
+</info>

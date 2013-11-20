@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title></title>
+  
+  
+  
+  <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.0.min.css">
+  
+  <!-- Extra Codiqa features -->
+  <link rel="stylesheet" href="res/js/codiqa.ext.css">
+  <script type="text/javascript" src="res/js/cordova-2.2.0.js">  </script>
+
+  <!-- jQuery and jQuery Mobile -->
+  <script src="jquery-mobile/jquery-1.6.4.min.js"></script>
+  <script src="jquery-mobile/jquery.mobile-1.0.min.js"></script>
+
+  <!-- Extra Codiqa features -->
+  <script src="res/js/codiqa.ext.js"></script>
+  
+  <!-- Extra untuk yang lainnya -->
+
+<script type="text/javascript"
+src="http://maps.google.com/maps/api/js?sensor=true&language=id">		
+</script>
+<script type="text/javascript" src="res/js/jquery_map.js"></script>
+<script type="text/javascript" src="res/js/js.js"></script>
+<!--<script type="text/javascript" src="res/js/SQLitePlugin.js"></script>-->
+
+<script type="text/javascript">
+
+	var db;
+	var pictureSource ;
+	var destinationType;
+	var online = false;
+	var radio=false;
+	document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("online", function(){
+		cek_versi();
+			online = true;
+	}, false);
+	document.addEventListener("offline", function(){
+			cek_versi();
+			online = false;
+	}, false);
+	
+	function onDeviceReady(){
+		  pictureSource = navigator.camera.PictureSourceType;
+        destinationType = navigator.camera.DestinationType;
+		initDatabase();
+		//playAudio();
+		radio_player();
+		navigator.splashscreen.hide();
+		/*
+		insertKategori("Wisata Alam");
+		insertKategori("Wisata Religi");
+		insertWisata("Alun - Alun Mojokerto",1,"Alun = Alun Mojokerto adalah ...." , "-7.463369" ,  "112.431869" , "http://3.bp.blogspot.com/--UDeWpZXLbw/T-r6awVG5tI/AAAAAAAAAb8/Ny88UN5BrkQ/s320/alun+-+alun+mojokerto.jpg");
+		insertWisata("Coban Rondo" , 2 ,"Coban Rondo adalahadalah ....", 				"-7.4573431" , "112.4324265" , " h");
+		
+		//coba insert Kategori Tempat asyik
+		insertTempatKategori("Tempat Nongkrong");
+		insertTempatKategori("Tempat Makan");
+		insertTempatKategori("Tempat Belanja");
+		//insertTempat(nama_tempat , id_kategori , keterangan_pariwisata , lat , long , url_foto)
+		insertTempat("KFC", "2", "Ingin Tempat Makan Enak , KFC Menyediakan Makanan yang berkualitas dan satu -  satunya di Mojokerto", "-7.4573431" , "112.4324265", "http://photos-c.ak.fbcdn.net/hphotos-ak-prn1/163734_102930853115050_5062269_n.jpg");
+				insertTempat("carefour", "3", "Carefour Mojokerto Terletak Di Jalan Benteng Pancasila", "-7.4573431" , "112.4324265", "carefour");
+				*/
+	}
+	
+	
+	
+
+
+
+//end pertama kali jalan
+ $(function() {
+
+	 //javascript buat page about
+        $("#about").on('pageshow', function(event, ui) {
+			
+			$('#map_canvas').height(300).gmap().bind('init', function(ev, map) {
+				$('#map_canvas').gmap(
+				'addMarker', 
+				{'position': '-7.468858,112.433712', 
+				'bounds': true}).click(function() {
+					$('#map_canvas').gmap('openInfoWindow', 
+					{'content': 'Mojokerto			 '}, this
+					);
+				});
+			});
+			//end map
+		});
+		//end about
+    });			
+
+</script>
+
+        
+</head>
+<body>
+<!-- Home -->
+<div data-role="page" id="index" style="background:url(res/image/bg.jpg)" >
+<script type="text/javascript">
+//pertama kali jalan
+	$( "#index" ).on( "pageshow", function () {
+	if(radio){
+		a = '<span class="ui-btn-inner"><span class="ui-btn-text">Playing tap to Stop</span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span>';
+		$("#radio").html(a);
+	}else{
+	var a = '<span class="ui-btn-inner"><span class="ui-btn-text">Play</span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span>';
+		$("#radio").html(a);
+	}
+	
+	});//end page init
+	
+</script>
+    <div data-theme="b" data-role="header">
+        <h3>
+            GoTravel
+        </h3>
+    </div>
+    <div data-role="content">
+<div>
+
+</div>
+
+<div align="center"><img src="res/image/staticmap.png"
+        width="300" height="150">
+  <br>
+  <br>
+  <br>
+</div>
+        <div class="ui-grid-a" align="center">
+          <div class="ui-block-a">
+        <a  href="#about" data-transition="pop">
+          <img src="res/image/about.png" width="64" height="64"  alt=""/><br>
+<div data-role="button">About Mojokerto</div>
+</a>
+          <br>
+          <br>
+          </div>
+          <div class="ui-block-b">
+          
+          <a  href="info_pariwisata.html" >
+          <img src="res/image/pariwisata.png" width="64" height="64"  alt=""/>
+          <br>
+		<div data-role="button">Info Pariwisata </div>
+          </a>
+          <br>
+          <br>
+<br>
+          </div>
+          <div class="ui-block-a">
+		<a href="help.html" >
+          <img src="res/image/help2.png" width="64" height="64"  alt=""/>
+          <br>
+          <div data-role="button">Help </div>
+		</a>
+          </div>
+          <div class="ui-block-b">
+        <a href="info_tempat.html" > 
+          <img src="res/image/tempat_asyik.png" width="64" height="64"  alt=""/><br>
+		<div data-role="button">Tempat Asyik</div>
+          </a>
+          </div>
+        </div>
+        <br>
+
+<a data-role="button" data-icon="gear" data-iconpos="left" id="radio" onclick="radio_player()">
+            Playing - Tap to Stop
+        </a>
+        
+     
+		<span id='audio_position'></span>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3>
+            © 2013 GoSoft
+        </h3>
+    </div>
+</div>
+
+<!-- Untuk Aboutnya -->
+
+<div data-role="page" id="about" style="background:url(res/image/bg_about.jpg) no-repeat bottom ">
+    <div data-theme="b" data-role="header" data-position="fixed">
+ <a data-role="button"  data-direction="reverse" data-transition="slide"
+        href="#index" data-icon="back" data-iconpos="left" class="ui-btn-left" data->
+            Back
+        </a>
+        <h3>
+            About
+        </h3>
+    </div>
+    <div data-role="content">
+
+    <div align="center">
+                <div id="map_canvas" align="center">
+                Map Tidak Dapat Ditampilkan
+                </div>
+        </div>
+        <div data-role="collapsible-set" data-theme="b" data-content-theme="b">
+            <div data-role="collapsible" data-collapsed="false">
+                <h3>
+                    About Mojokerto
+                </h3>
+ <p align="justify">Kota Mojokerto adalah sebuah kota (dahulu daerah tingkat II berstatus kotamadya) di Jawa Timur, Indonesia. Terletak 50 km barat daya Surabaya, wilayah kota ini dikelilingi oleh Kabupaten Mojokerto.</p>
+  <p align="justify">Kabupaten Mojokerto, adalah sebuah kabupaten di Provinsi Jawa Timur, Indonesia kabupaten Mojokerto. Kabupaten ini berbatasan dengan di utara, Kabupaten Lamongan dan Gresik di timur, Kabupaten Gresik dan sidoarjo dan di selatan, serta kab kab. malang dan kota batu di barat jombang.
+Kabupaten Mojokerto terdiri atas 18 kecamatan, yang dibagi lagi atas sejumlah desa dan kelurahan. Kini banyak gedung dan kantor pemerintahan yang dipindahkan ke Kota Mojosari, sebelah timur kota Mojokerto.</p>
+            </div>
+            <div data-role="collapsible"  >
+                <h3>
+                    Potensi Mojokerto
+                </h3>
+                  <p align="justify">Alun-alun Kota Mojokerto terletak di pusat kota. Bagi warga Kota Mojokerto dan sekitarnya dulu merupakan tempat rekreasi sekaligus sebagai sarana bersantai bagi keluarga di akhir pekan.namun Sekarang Alun - Alun di kosongkan dan Pedagangnya di Pindahkan ke Jl.Benteng Pancasila yang tidak jauh dari Kediaman Walikota Mojokerto.</p>
+                <p align="justify">Gereja Protestan Indonesia Bagian Barat merupakan salah satu gereja tertua di Kota Mojokerto dan merupakan peninggalan zaman Belanda. Masjid Agung Al-Fattah didirikan pada zaman Belanda tepatnya pada tanggal 7 Mei 1878 berada di pusat kota sebelah Barat Aloon-aloon.</p>
+                <p align="justify">Klenteng Hok Siang Kiong didirikan pada tahun 1995. Ciri khas kedua bangunan itu adalah bentuk arsitekturnya yang khas Cina. Bagi mereka yang senang berolahraga dapat menempuh perjalanan 1 km di arena <em>jogging track</em> di Dermaga sungai Brantas Indah. Di lokasi ini juga terdapat warung lesehan yang menyediakan beberapa macam makanan. Rekreasi keluarga lainnya dapat dikunjungi Pemandian Sekar Sari terletak di tengah kota. Tempat rekreasi ini dilengkapi kolam renang dengan fasilitas bermain untuk anak-anak, wartel, toko alat-alat olah raga dan rumah makan yang menjual beraneka ragam makanan (bakso, kikil, soto ayam, dan lain-lain). </p>
+                <p align="justify">Jalan Benteng Pancasila, Kecamatan Magersari merupakan pusat keramaian terbaru di kota Mojokerto. Di Jalan Ini terdapat Pusat Jualan PKL yang menjual beragam produk dari produk garmen sampai sepatu dan tas. selain itu juga Jalan Benteng Pancasila tau biasa disebut Benpas merupakan tempat berkumpul kawula muda Mojokerto dan wilayah sekitarnya seperti Sidoarjo, Jombang, Lamongan, Nganjuk, Kediri, Surabaya hingga Pasuruan di malam minggu dan di hari libur nasional.</p>
+            </div>
+        </div>
+    </div>
+
+
+                
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3>
+            © 2013 GoSoft
+        </h3>
+               
+    </div>
+</div>
+<!-- end untuk aboutnya-->
+
+
+
+
+</body>
+</html>

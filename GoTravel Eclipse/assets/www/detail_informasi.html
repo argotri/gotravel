@@ -1,0 +1,45 @@
+<!-- start Info Pariwisata -->
+<div data-role="page" id="info_pariwisata_detail">
+    <div data-theme="b" data-role="header" data-position="fixed">
+ <a data-role="button"  data-direction="reverse" data-transition="slide"
+        href="info_pariwisata.html" data-icon="back" data-iconpos="left" class="ui-btn-left" data->
+            Back
+        </a>
+        <h3>
+            Detail Informasi
+        </h3>
+    </div>
+    <div data-role="content">
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <div id="load"></div>
+    <script type="text/javascript">
+	var data_wisata;
+	 $(function() {
+	 //javascript buat page info_pariwisata
+		$("#info_pariwisata_detail").on('pageshow', function(event, ui) {
+			loading();
+			data_wisata = db.exec("select * from list_wisata WHERE id_kategori = "+GetQueryStringParams('id_kategori'));
+			for(var i = 0 ; i < data_wisata.length ; i ++){
+				$("#wisata_view").append('<li data-theme="c"><a href="#page1" data-transition="slide">'+data_wisata[i][1].value+'</a></li>');
+			}
+			$("#wisata_view").listview("refresh");
+			end_loading();
+		});
+		//end info_pariwisata
+	});
+	</script>
+         <ul id="wisata_view" data-role="listview" data-divider-theme="b" data-inset="true">
+			
+        </ul>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3>
+            © 2013 GoSoft
+        </h3>
+
+    </div>
+</div>
+
+<!-- end untuk info pariwisata-->

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.example"
+    version   = "1.0.0">
+
+<name>GoTravel</name>
+
+<description>
+GoTravel adalah Sebuah Layanan Informasi dalam mencari Lokasi Pariwisata yang ada di Mojokerto dan sekitarnya , Terdapat beberapa aplikasi seperti Info pariwisata dan Letak pariwisata Pada Google maps serta Direction menuju kesana.
+</description>
+
+<author href="http://gosoft.web.id" email="argo.triwidodo@gosoft.web.id">
+DeAngeLZ - GoSoft - Argo Triwidodo
+</author>
+
+   <feature name="http://api.phonegap.com/1.0/network"/>
+   <feature name="http://api.phonegap.com/1.0/media"/>
+   <feature name="http://api.phonegap.com/1.0/file"/>
+   <feature name="http://api.phonegap.com/1.0/notification"/>
+
+   <preference name="phonegap-version" value="2.3.0" />
+   <preference name="target-device" value="universal" />
+
+   <access origin="*" />
+   <!-- Icons -->
+   <icon src="icon.png" width="64" height="64" gap:role="default" />
+   <icon src="images/icon-72x72.png" width="72" height="72" gap:platform="android" gap:density="hdpi" />
+   <icon src="images/icon-96x96.png" width="96" height="96" gap:platform="android" gap:density="xhdpi" />
+   <icon src="images/icon-72x72.png" width="72" height="72" gap:platform="ios" />
+   
+
+</widget>
